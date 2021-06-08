@@ -1,10 +1,10 @@
-import Head from "next/head";
-import { signOut } from "@lib/firebase";
-import { useAuth } from "@contexts/auth";
-import styles from "./Layout.module.scss";
+import Head from 'next/head'
+import { signOut } from '@lib/firebase'
+import { useAuth } from '@contexts/auth'
+import styles from './Layout.module.scss'
 
 const Layout = ({ children, image, title, description }) => {
-  const [user] = useAuth();
+  const [user] = useAuth()
 
   return (
     <>
@@ -16,7 +16,7 @@ const Layout = ({ children, image, title, description }) => {
       <div className={styles.Layout}>
         <nav>
           <span>
-            <a href="/">My Next.js Blog</a>
+            <a href="/">Home</a>
           </span>
           {user && (
             <span>
@@ -27,7 +27,7 @@ const Layout = ({ children, image, title, description }) => {
         <main>{children}</main>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
