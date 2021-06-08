@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { signIn } from '@lib/firebase';
-import { useAuth } from '@contexts/auth';
-import styles from '@styles/signin.module.scss';
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { signIn, signInWithGoogle } from "@lib/firebase";
+import { useAuth } from "@contexts/auth";
+import styles from "@styles/signin.module.scss";
 
 const SignInPage = () => {
   const router = useRouter();
   const [user, userLoading] = useAuth();
-  const [values, setValues] = useState({ email: '', password: '' });
+  const [values, setValues] = useState({ email: "", password: "" });
 
   if (userLoading) {
     return <h1>Loading...</h1>;
   }
 
-  if (user && typeof window !== 'undefined') {
-    router.push('/');
+  if (user && typeof window !== "undefined") {
+    router.push("/");
     return null;
   }
 
@@ -36,7 +36,7 @@ const SignInPage = () => {
     });
 
     if (missingValues.length > 1) {
-      alert(`You're missing these fields: ${missingValues.join(', ')}`);
+      alert(`You're missing these fields: ${missingValues.join(", ")}`);
       return;
     }
 
@@ -64,6 +64,9 @@ const SignInPage = () => {
           onChange={handleChange}
         />
         <button type="submit">Sign In</button>
+        <button type="submit" onClick={() => signInWithGoogle()}>
+          Sign In With Google
+        </button>
       </form>
     </div>
   );

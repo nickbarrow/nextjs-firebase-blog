@@ -1,16 +1,16 @@
-import { useRouter } from 'next/router';
-import { getPostBySlug } from '@lib/firebase';
-import { getFormattedDate } from '@lib/utils';
-import { useAuth } from '@contexts/auth';
-import { Icon, Layout } from '@components';
-import styles from '@styles/post.module.scss';
+import { useRouter } from "next/router";
+import { getPostBySlug } from "@lib/firebase";
+import { getFormattedDate } from "@lib/utils";
+import { useAuth } from "@contexts/auth";
+import { Icon, Layout } from "@components";
+import styles from "@styles/post.module.scss";
 
 const PostPage = ({ post }) => {
   const router = useRouter();
   const [user] = useAuth();
 
-  if (!post && typeof window !== 'undefined') {
-    router.push('/404');
+  if (!post && typeof window !== "undefined") {
+    router.push("/404");
     return;
   }
 
@@ -19,7 +19,11 @@ const PostPage = ({ post }) => {
   }
 
   return (
-    <Layout>
+    <Layout
+      image={post.coverImage}
+      title={post.title}
+      description={post.content}
+    >
       <div className={styles.PostPage}>
         <img src={post.coverImage} alt={post.coverImageAlt} />
         <div>
@@ -32,11 +36,11 @@ const PostPage = ({ post }) => {
               <button
                 onClick={() => {
                   const shouldDeletePost = confirm(
-                    'Are you sure you want to delete this post?',
+                    "Are you sure you want to delete this post?"
                   );
                   if (shouldDeletePost) {
                     deletePost(post.slug).then(() => {
-                      router.push('/');
+                      router.push("/");
                     });
                   }
                 }}
@@ -58,8 +62,8 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      post,
-    },
+      post
+    }
   };
 }
 
