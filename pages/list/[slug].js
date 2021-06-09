@@ -1,42 +1,38 @@
+/*
+ * /list/[slug] - Property Detail Page
+ */
 import { useRouter } from 'next/router'
-import { getPostBySlug, getPropertyByID } from '@lib/firebase'
-import { getFormattedDate } from '@lib/utils'
+import { getPropertyByID } from '@lib/firebase'
 import { useAuth } from '@contexts/auth'
-import { Icon, Layout } from '@components'
-import styles from '@styles/post.module.scss'
+import { Layout, BeerCarousel } from '@components'
+import Accordion from 'react-bootstrap/Accordion'
+import Card from 'react-bootstrap/Card'
 
 const PostPage = ({ property }) => {
   const router = useRouter()
   const [user] = useAuth()
 
-  // if (!property && typeof window !== 'undefined') {
-  //   router.push('/404')
-  //   return
-  // }
-
-  if (!property) return null
-
-  // return <h1>hi</h1>
+  if (!property && typeof window !== 'undefined') {
+    router.push('/404')
+    return
+  }
 
   return (
     <Layout
       image={property.imageURLs[0]}
       title={property.title}
       description={property.content}>
-      <div>
-        <a href="/" className="back">
-          <i class="fas fa-long-arrow-alt-left"></i>{' '}
+      <div className="property">
+        <a href="/list" className="back">
+          <i className="fas fa-long-arrow-alt-left"></i>{' '}
           <span>Back to Listings</span>
         </a>
         {property ? (
-          <div
-            className="property-container"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}>
+          <div className="property-container">
             {user && <div className="edit-property">Edit</div>}
 
             <div className="property-header">
-              {/* <BeerCarousel gallery={property.imageURLs} text="false" /> */}
+              <BeerCarousel gallery={property.imageURLs} text="false" />
               <div className="property-header-details">
                 <h1 className="font-weight-bold m-2">{property.title}</h1>
                 <p className="property-subhead">
@@ -59,7 +55,7 @@ const PostPage = ({ property }) => {
             </div>
 
             <div className="property-details">
-              {/* <Accordion defaultActiveKey="0">
+              <Accordion defaultActiveKey="0">
                 <Card>
                   <Accordion.Toggle as={Card.Header} eventKey="0">
                     Details
@@ -94,7 +90,7 @@ const PostPage = ({ property }) => {
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
-              </Accordion> */}
+              </Accordion>
             </div>
           </div>
         ) : (
