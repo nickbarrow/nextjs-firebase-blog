@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { getPosts, getProperties } from '@lib/firebase'
 import { Layout } from '@components'
 import { useAuth } from '@contexts/auth'
+// react-bootstrap component imports
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
-import styles from '@styles/index.module.scss'
 
 const Home = ({ posts, properties }) => {
   const [user] = useAuth()

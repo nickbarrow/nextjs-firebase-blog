@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
+import Image from 'next/image'
 
 export default function BeerCarousel(props) {
   return (
@@ -7,7 +8,12 @@ export default function BeerCarousel(props) {
       {props.gallery.map((item, index) => {
         return (
           <Carousel.Item key={index} interval={10000}>
-            <img className="d-block w-100" src={item} alt="First slide" />
+            <Image
+              className="d-block w-100"
+              src={item}
+              alt="First slide"
+              layout="fill"
+            />
             {props.text === 'true' && (
               <Carousel.Caption>
                 <a href={{ pathname: `/list/${item.id}` }}>

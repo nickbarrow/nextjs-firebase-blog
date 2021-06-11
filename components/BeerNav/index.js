@@ -22,10 +22,7 @@ export default function BeerNav(props) {
       />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <a
-            href="/"
-            className="nav-link"
-            onClick={() => setExpanded(false)}>
+          <a href="/" className="nav-link" onClick={() => setExpanded(false)}>
             Home
           </a>
 
@@ -36,12 +33,7 @@ export default function BeerNav(props) {
             Listings
           </a>
 
-          <Nav.Link>
-            Contact Us
-            <i
-              className="fas fa-mobile-alt ml-3"
-              style={{ transform: 'rotate(30deg)' }}></i>
-          </Nav.Link>
+          <Nav.Link>Contact Us</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

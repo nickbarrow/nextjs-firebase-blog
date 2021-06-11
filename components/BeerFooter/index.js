@@ -1,26 +1,35 @@
 import React, { useContext } from 'react'
 import { useAuth } from '@contexts/auth'
 import { signInWithGoogle, signOut } from '@lib/firebase'
+import Button from 'react-bootstrap/Button'
 
 export default function BeerFooter(props) {
   const [user] = useAuth()
-  
+
   return (
     <div className="beer-footer">
-      <img src="images/logo_magic.png" />
+      <img src="images/logo_magic.png" alt="Logo Transparent Background" />
 
       <div className="footer-right">
         {user ? (
-          <a href onClick={() => signOut() } className="btn btn-outline-secondary">
+          <Button onClick={() => signOut()} variant="outline-secondary">
             Logout
-          </a>
+          </Button>
         ) : (
-          <a href onClick={() => signInWithGoogle() } className="btn btn-outline-secondary">
+          <Button
+            onClick={() => signInWithGoogle()}
+            variant="outline-secondary">
             Admin Login
-          </a>
+          </Button>
         )}
         <span className="d-block my-2">© Beer Properties 2021</span>
-        <span className="d-block">Made with 🖤 in Fort Wayne</span>
+        <span className="d-block">
+          Made with{' '}
+          <span role="img" aria-label="Black Heart Emoji">
+            🖤
+          </span>{' '}
+          in Fort Wayne
+        </span>
       </div>
     </div>
   )
