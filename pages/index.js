@@ -17,7 +17,7 @@ const Home = ({ posts, properties }) => {
     else setEditing(true)
   }
 
-  const [windowHeight, setWindowHeight] = useState(undefined);
+  const [windowHeight, setWindowHeight] = useState(undefined)
 
   useEffect(() => {
     // only execute all the code below in client side
@@ -25,28 +25,25 @@ const Home = ({ posts, properties }) => {
       // Handler to call on window resize
       function handleResize() {
         // Set window width/height to state
-        setWindowHeight(window.innerHeight);
+        setWindowHeight(window.innerHeight)
       }
 
       // Add event listener
-      window.addEventListener("resize", handleResize);
+      window.addEventListener('resize', handleResize)
 
       // Call handler right away so state gets updated with initial window size
-      handleResize();
+      handleResize()
 
       // Remove event listener on cleanup
-      return () => window.removeEventListener("resize", handleResize);
+      return () => window.removeEventListener('resize', handleResize)
     }
-  }, []);
+  }, [])
 
   return (
     <Layout>
-
-      <div
-        className="home"
-        style={{ height: windowHeight }}>
-
-        <img className="home-img"
+      <div className="home" style={{ height: windowHeight }}>
+        <img
+          className="home-img"
           src="images/kitchen.jpg"
           alt="Beautiful Home"
         />
@@ -80,10 +77,19 @@ const Home = ({ posts, properties }) => {
           {user && (
             <>
               <div className={`edit-info ${editing ? 'editing' : ''}`}>
-                <span onClick={() => { toggleEditing() }}>Edit Homepage</span>
+                <span
+                  onClick={() => {
+                    toggleEditing()
+                  }}>
+                  Edit Homepage
+                </span>
               </div>
 
-              <Modal show={showModal} onHide={() => { setShowModal(false) }}>
+              <Modal
+                show={showModal}
+                onHide={() => {
+                  setShowModal(false)
+                }}>
                 <Modal.Header closeButton>
                   <Modal.Title>
                     <b>Edit Homepage</b>
@@ -103,19 +109,30 @@ const Home = ({ posts, properties }) => {
                     <br />
 
                     <Form.Label>Button Text</Form.Label>
-                    <Form.Control type="text" placeholder="Schedule an Appointment" />
+                    <Form.Control
+                      type="text"
+                      placeholder="Schedule an Appointment"
+                    />
                     <br />
                     <Form.Label>Button Link</Form.Label>
                     <Form.Control type="text" placeholder="appt" />
                   </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button variant="secondary" onClick={() => { setShowModal(false) }}>
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      setShowModal(false)
+                    }}>
                     Close
-                </Button>
-                  <Button variant="primary" onClick={() => { setShowModal(false) }}>
+                  </Button>
+                  <Button
+                    variant="primary"
+                    onClick={() => {
+                      setShowModal(false)
+                    }}>
                     Save Changes
-                </Button>
+                  </Button>
                 </Modal.Footer>
               </Modal>
             </>
@@ -125,43 +142,6 @@ const Home = ({ posts, properties }) => {
     </Layout>
   )
 }
-
-const HomePage = ({ posts, properties }) => (
-  <Layout>
-    <div className={styles.HomePage}>
-      <h1>Properties</h1>
-      {/* {posts.map((post) => (
-        <article key={post.slug}>
-          <img src={post.coverImage} alt={post.coverImageAlt} />
-          <div>
-            <h2>{post.title}</h2>
-            <span>{getFormattedDate(post.dateCreated)}</span>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: `${post.content.substring(0, 200)}...`
-              }}></p>
-            <a href={`/post/${post.slug}`}>Continue Reading</a>
-          </div>
-        </article>
-      ))} */}
-
-      {properties.map((property) => (
-        <article key={property.id}>
-          {/* <img src={property.imageURLs[0]} alt={'ALT'} /> */}
-          <div>
-            <h2>{property.title}</h2>
-            {/* <span>{getFormattedDate(post.dateCreated)}</span> */}
-            <p
-              dangerouslySetInnerHTML={{
-                __html: `${property.desc}`
-              }}></p>
-            <a href={`/post/${property.id}`}>Continue Reading</a>
-          </div>
-        </article>
-      ))}
-    </div>
-  </Layout>
-)
 
 export async function getServerSideProps() {
   const posts = await getPosts()

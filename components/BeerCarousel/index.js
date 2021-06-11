@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 
 export default function BeerCarousel(props) {
-
   return (
     <Carousel>
       {props.gallery.map((item, index) => {

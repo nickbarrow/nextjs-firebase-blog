@@ -3,19 +3,19 @@
 // icon library. You can read more about this in the Next.js docs at:
 // https://nextjs.org/docs/advanced-features/custom-app
 
-import { AuthProvider } from '@contexts/auth';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
+import { AuthProvider } from '@contexts/auth'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
-import 'bootstrap/dist/css/bootstrap.css'
-import "@styles/styles.scss"
+// import 'bootstrap/dist/css/bootstrap.min.css'
+import '@styles/styles.scss'
 
-library.add(fas);
+library.add(fas)
 
 const App = ({ Component, pageProps }) => (
   <AuthProvider>
     <Component {...pageProps} />
   </AuthProvider>
-);
+)
 
-export default App;
+export default App
