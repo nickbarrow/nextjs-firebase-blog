@@ -8,7 +8,7 @@ export default function BeerFooter(props) {
 
   return (
     <div className="beer-footer">
-      <img src="images/logo_magic.png" alt="Logo Transparent Background" />
+      <img src="../images/logo_magic.png" alt="Logo Transparent Background" />
 
       <div className="footer-right">
         {user ? (

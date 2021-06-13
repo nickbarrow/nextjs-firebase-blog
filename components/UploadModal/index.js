@@ -110,7 +110,7 @@ export default function UploadModal(props) {
   }
 
   return (
-    <Modal show={props.show}
+    <Modal size="lg" show={props.show}
       onHide={() => { props.setEditingItem(false); props.setShowModal(false) }}
       dialogClassName="upload-modal">
       <Modal.Header closeButton>
@@ -119,106 +119,112 @@ export default function UploadModal(props) {
 
       <Modal.Body>
         <div className="add-property-form">
-          <label className="img-upload-label">
-            <FileUploader
-              hidden
-              accept="image/*"
-              name="propertyImg"
-              randomizeFilename
-              storageRef={store.ref('images')}
-              onProgress={handleUploadProgress}
-              onUploadSuccess={handleImageUploadSuccess}
-              onError={(error) => { console.log(error) }} />
-            <div className="img-upload-btn"></div>
-            <p>Upload Image(s)</p>
-          </label>
           <div className="img-progress" style={{ width: imageUploadProgress + '%' }}></div>
 
-          <div className="uploading-images">
-            {uploadForm.imageURLs?.map((src, index) => {
-              return (
-                <div className="uploading-image-container d-inline-block">
-                  <img className="uploading-image" src={src} />
-                  <div
-                    className="cancel-image"
-                    onClick={() => {
-                      cancelUploadImage(src)
-                    }}>
-                    <i className="fas fa-times"></i>
+          <div className="uploading-left">
+            <label className="img-upload-label">
+              <FileUploader
+                hidden
+                accept="image/*"
+                name="propertyImg"
+                randomizeFilename
+                storageRef={store.ref('images')}
+                onProgress={handleUploadProgress}
+                onUploadSuccess={handleImageUploadSuccess}
+                onError={(error) => { console.log(error) }} />
+              <div className="img-upload-btn"></div>
+              <p>Upload Image(s)</p>
+            </label>
+
+            <div className="uploading-images">
+              {uploadForm.imageURLs?.map((src, index) => {
+                return (
+                  <div className="uploading-image-container d-inline-block">
+                    <img className="uploading-image" src={src} />
+                    <div
+                      className="cancel-image"
+                      onClick={() => {
+                        cancelUploadImage(src)
+                      }}>
+                      <i className="fas fa-times"></i>
+                    </div>
                   </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
 
-          <label htmlFor="basic-url">Title</label>
-          <InputGroup className="mb-3">
-            <input
-              className="form-control"
-              value={uploadForm.title}
-              placeholder="12345 Example St."
-              onChange={(e) => {
-                handleFormChange(e.target.value, 'title')
-              }}
-            />
-          </InputGroup>
-
-          <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Details</Form.Label>
-            <textarea
-              className="form-control"
-              rows="3"
-              value={uploadForm.desc}
-              placeholder="12345 Example St."
-              onChange={(e) => {
-                handleFormChange(e.target.value, 'desc')
-              }}
-            />
-          </Form.Group>
-
-          <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Bedrooms</Form.Label>
-            <input
-              className="form-control"
-              type="number"
-              min="1"
-              max="10"
-              value={uploadForm.br}
-              onChange={(e) => {
-                handleFormChange(e.target.value, 'br')
-              }}
-            />
-          </Form.Group>
-
-          <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Bathrooms</Form.Label>
-            <input
-              className="form-control"
-              type="number"
-              min="1"
-              max="10"
-              value={uploadForm.ba}
-              onChange={(e) => {
-                handleFormChange(e.target.value, 'ba')
-              }}
-            />
-          </Form.Group>
-
-          <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>List Price</Form.Label>
-            <InputGroup>
-              <InputGroup.Prepend>
-                <InputGroup.Text id="basic-addon1">$</InputGroup.Text>
-              </InputGroup.Prepend>
+          <div className="uploading-right">
+            <label htmlFor="basic-url">Title</label>
+            <InputGroup className="mb-3">
               <input
                 className="form-control"
-                value={uploadForm.price}
+                value={uploadForm.title}
+                placeholder="12345 Example St."
                 onChange={(e) => {
-                  handleFormChange(e.target.value, 'price')
+                  handleFormChange(e.target.value, 'title')
                 }}
               />
             </InputGroup>
-          </Form.Group>
+
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Details</Form.Label>
+              <textarea
+                className="form-control"
+                rows="3"
+                value={uploadForm.desc}
+                placeholder="12345 Example St."
+                onChange={(e) => {
+                  handleFormChange(e.target.value, 'desc')
+                }}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Bedrooms</Form.Label>
+              <input
+                className="form-control"
+                type="number"
+                min="1"
+                max="10"
+                value={uploadForm.br}
+                onChange={(e) => {
+                  handleFormChange(e.target.value, 'br')
+                }}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Bathrooms</Form.Label>
+              <input
+                className="form-control"
+                type="number"
+                min="1"
+                max="10"
+                value={uploadForm.ba}
+                onChange={(e) => {
+                  handleFormChange(e.target.value, 'ba')
+                }}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>List Price</Form.Label>
+              <InputGroup>
+                <InputGroup.Prepend>
+                  <InputGroup.Text id="basic-addon1">$</InputGroup.Text>
+                </InputGroup.Prepend>
+                <input
+                  className="form-control"
+                  value={uploadForm.price}
+                  onChange={(e) => {
+                    handleFormChange(e.target.value, 'price')
+                  }}
+                />
+              </InputGroup>
+            </Form.Group>
+          </div>
+
         </div>
       </Modal.Body>
       <Modal.Footer>

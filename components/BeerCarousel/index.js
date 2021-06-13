@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function BeerCarousel(props) {
   return (
-    <Carousel>
+    <Carousel interval={null}>
       {props.gallery.map((item, index) => {
         return (
           <Carousel.Item key={index} interval={10000}>
