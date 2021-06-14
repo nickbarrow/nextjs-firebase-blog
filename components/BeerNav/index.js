@@ -11,7 +11,7 @@ export default function BeerNav(props) {
         <a href="/" onClick={() => setExpanded(false)}>
           <img
             alt=""
-            src="images/logo_magic.png"
+            src="../images/logo_magic.png"
             className="nav-logo d-inline-block align-top"
           />
         </a>

@@ -139,7 +139,7 @@ export default function UploadModal(props) {
             <div className="uploading-images">
               {uploadForm.imageURLs?.map((src, index) => {
                 return (
-                  <div className="uploading-image-container d-inline-block">
+                  <div className="uploading-image-container d-inline-block" key={index}>
                     <img className="uploading-image" src={src} />
                     <div
                       className="cancel-image"
@@ -232,7 +232,7 @@ export default function UploadModal(props) {
           Cancel
         </Button>
         <Button variant="primary" onClick={handleUpload}>
-          Upload
+          Submit
         </Button>
       </Modal.Footer>
     </Modal>
