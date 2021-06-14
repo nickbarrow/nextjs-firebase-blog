@@ -1,0 +1,75 @@
+// GALLERY ===========================
+.gallery {
+  height: 100%;
+  padding: 0 20px;
+  padding-top: $navHeight + 20px;
+
+  p { text-transform: none; }
+
+  .carousel {
+    height: 220px;
+
+    .carousel-inner {
+      height: 100%;
+
+      .carousel-item {
+        height: 100%;
+        
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+    
+        a { color: white; }
+      }
+    }
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    @media (min-width: 700px) { grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 1000px) { grid-template-columns: repeat(3, 1fr); }
+    @media (min-width: 1500px) { grid-template-columns: repeat(4, 1fr); }
+    @media (min-width: 1900px) { grid-template-columns: repeat(5, 1fr); }
+
+    .card {
+      width: 100%;
+      margin: 20px 0;
+      overflow: hidden;
+
+      .br-pill {
+        background-color: rgba(30, 143, 255, 0.5);
+        border-radius: 50px;
+        display: inline-block;
+        padding: 2px 8px;
+      }
+      .ba-pill {
+        background-color: rgba(255, 176, 30, 0.75);
+        border-radius: 50px;
+        display: inline-block;
+        padding: 2px 8px;
+      }
+
+      .card-body-fade {
+        display: block;
+        position: relative;
+        line-height: 1.2em;
+        height: 3.6em; /* exactly three lines */
+        overflow: hidden;
+      }
+      .card-body-fade:after {
+        content: "";
+        text-align: right;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 70%;
+        height: 1.2em;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+      }
+    }
+  }
+}

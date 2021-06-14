@@ -19,7 +19,7 @@ const Gallery = ({ properties }) => {
   const [deletingItem, setDeletingItem] = useState(null)
 
   // Set form state when editing existing item.
-  const editItem = item => {
+  const editItem = (item) => {
     setEditingItem(item)
     setShowModal(true)
   }
@@ -29,16 +29,14 @@ const Gallery = ({ properties }) => {
 
   return (
     <Layout>
-      <div
-        className="gallery"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}>
+      <div className="gallery">
         {user && (
           <Button
             variant="outline-success"
-            style={{ width: "100%" }}
-            onClick={() => { setShowModal(true) }}>
+            style={{ width: '100%' }}
+            onClick={() => {
+              setShowModal(true)
+            }}>
             Upload
           </Button>
         )}
@@ -63,7 +61,9 @@ const Gallery = ({ properties }) => {
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
+                    <small className="text-muted">
+                      Last updated 3 mins ago
+                    </small>
                     {user && (
                       <>
                         <Button
@@ -73,7 +73,7 @@ const Gallery = ({ properties }) => {
                             editItem(item)
                           }}>
                           Edit
-                          </Button>
+                        </Button>
                         <Button
                           variant="danger"
                           className="d-block w-100"
@@ -82,7 +82,7 @@ const Gallery = ({ properties }) => {
                             setShowDeleteConfirmation(true)
                           }}>
                           Delete
-                          </Button>
+                        </Button>
                       </>
                     )}
                   </Card.Footer>
@@ -95,12 +95,14 @@ const Gallery = ({ properties }) => {
         )}
 
         {/* Property Upload/Edit Modal */}
-        {user &&
-          <UploadModal show={showModal}
+        {user && (
+          <UploadModal
+            show={showModal}
             setShowModal={setShowModal}
             editingItem={editingItem}
-            setEditingItem={setEditingItem} />
-        }
+            setEditingItem={setEditingItem}
+          />
+        )}
 
         {/* Item deletion confirmation */}
         <Modal
@@ -120,7 +122,7 @@ const Gallery = ({ properties }) => {
               variant="secondary"
               onClick={() => setShowDeleteConfirmation(false)}>
               Cancel
-              </Button>
+            </Button>
             <Button
               variant="danger"
               onClick={() => {
@@ -128,7 +130,7 @@ const Gallery = ({ properties }) => {
                 setShowDeleteConfirmation(false)
               }}>
               Delete
-              </Button>
+            </Button>
           </Modal.Footer>
         </Modal>
       </div>

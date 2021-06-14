@@ -1,0 +1,88 @@
+// PROPERTY ==========================
+.property {
+  padding: $navHeight+20px 5% 0;
+  height: 100%;
+  background-color: white;
+  @media (min-width: 1200px) { padding: $navHeight+20px 12% 0; }
+
+  // "Back to listings" button
+  .back {
+    display: block;
+    width: fit-content;
+    text-align: left;
+    padding: 10px 5px;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+      i { text-decoration: underline; }
+    }
+  }
+  
+  .property-container {
+    // border-radius: 10px;
+    overflow: hidden;
+
+    .property-header {
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+
+      @media (min-width: 800px) {
+        flex-direction: row;
+        .carousel { width: 65%; }
+        .property-header-details { width: 35%; }
+      }
+
+      .carousel {
+        background-color: rgba(0, 0, 0, 0.1);
+        height: 400px;
+
+        .carousel-inner {
+          height: 100%;
+
+          .carousel-item {
+            height: 100%;
+
+            img {
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+
+      .property-header-details {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .property-details {
+      display: flex;
+      flex-direction: row;
+
+      .accordion {
+        text-align: left;
+        margin-top: 20px;
+        border-radius: 0px;
+        width: 100%;
+  
+        .card {
+          border-radius: 0px;
+  
+          .card-header {
+            cursor: pointer;
+            font-size: 30px;
+            font-weight: bold;
+            transition: all ease .2s;
+            &:hover { color: dodgerblue; }
+          }
+        }
+      }
+    }
+  }
+}

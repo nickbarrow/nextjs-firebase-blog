@@ -29,20 +29,20 @@ const PostPage = ({ property }) => {
         </a>
         {property ? (
           <div className="property-container">
-            {user && <div className="edit-property">Edit</div>}
+            {/* {user && <div className="edit-property">Edit</div>} */}
 
             <div className="property-header">
               <BeerCarousel gallery={property.imageURLs} text="false" />
               <div className="property-header-details">
-                <h1 className="font-weight-bold m-2">{property.title}</h1>
+                <h1 className="font-weight-bold my-2">{property.title}</h1>
                 <p className="property-subhead">
-                  <span className="rounded-pill bg-warning px-2 mr-2">
+                  <span className="rounded-pill bg-warning px-3 py-1 mr-2">
                     <b>{property.br}</b> br
                   </span>
-                  <span className="rounded-pill bg-warning px-2 mr-2">
+                  <span className="rounded-pill bg-warning px-3 py-1 mr-2">
                     <b>{property.ba}</b> ba
                   </span>
-                  <span className="rounded-pill bg-info px-2 mr-2">
+                  <span className="rounded-pill bg-info px-3 py-1">
                     1600 sq ft
                   </span>
                 </p>

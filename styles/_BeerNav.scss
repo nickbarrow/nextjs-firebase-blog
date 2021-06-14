@@ -3,8 +3,9 @@
     border: none;
 }
 .navbar {
+    height: $navHeight;
     border-bottom: 3px solid #ddd;
-    background-color: #eee;
+    background-color: rgba(238, 238, 238, 0.85);
     padding: 0 20px;
     position: fixed;
     width: 100%;

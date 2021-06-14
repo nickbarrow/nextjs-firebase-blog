@@ -1,187 +1,28 @@
 @import './_variables.scss';
-// @import './_abstracts.scss';
 @import './_BeerNav.scss';
 @import './_home.scss';
-@import './_uploadForm.scss';
+@import './_list.scss';
+@import './_property.scss';
+@import './_UploadForm.scss';
 
 .bg-info {
   background-color: rgba(53, 184, 224, 0.5) !important;
 }
 
-* {
-  box-sizing: border-box;
-  // font-family: 'Lexend', sans-serif;
-  font-family: Helvetica, Arial, sans-serif
-}
 body {
   padding: 0;
   margin: 0;
 }
-h1 { font-size: 30px; margin: 0; }
+
 a:hover { text-decoration: none; }
-.App {
-  font-family: sans-serif;
+
+#__next {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
   text-align: center;
-  height: 100%;
-}
+  // height: 100%;
 
-.back {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 10px 5px;
-  cursor: pointer;
-  &:hover { text-decoration: underline; }
-}
-
-// GALLERY ===========================
-.gallery {
-  height: 100%;
-  padding: 0 20px;
-  padding-top: $navHeight + 20px;
-
-  p { text-transform: none; }
-
-  .carousel {
-    height: 220px;
-
-    .carousel-inner {
-      height: 100%;
-
-      .carousel-item {
-        height: 100%;
-        
-        img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-        }
-    
-        a { color: white; }
-      }
-    }
-  }
-
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-    @media (min-width: 700px) { grid-template-columns: repeat(2, 1fr); }
-    @media (min-width: 1000px) { grid-template-columns: repeat(3, 1fr); }
-    @media (min-width: 1500px) { grid-template-columns: repeat(4, 1fr); }
-    @media (min-width: 1900px) { grid-template-columns: repeat(5, 1fr); }
-
-    .card {
-      width: 100%;
-      margin: 20px 0;
-      overflow: hidden;
-
-      .br-pill {
-        background-color: rgba(30, 143, 255, 0.5);
-        border-radius: 50px;
-        display: inline-block;
-        padding: 2px 8px;
-      }
-      .ba-pill {
-        background-color: rgba(255, 176, 30, 0.75);
-        border-radius: 50px;
-        display: inline-block;
-        padding: 2px 8px;
-      }
-
-      .card-body-fade {
-        display: block;
-        position: relative;
-        line-height: 1.2em;
-        height: 3.6em; /* exactly three lines */
-        overflow: hidden;
-      }
-      .card-body-fade:after {
-        content: "";
-        text-align: right;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 70%;
-        height: 1.2em;
-        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
-      }
-    }
-  }
-}
-
-// PROPERTY ==========================
-.property {
-  padding: $navHeight 20px 0;
-  height: 100%;
-  background-color: white;
-
-  .property-container {
-    // border-radius: 10px;
-    overflow: hidden;
-
-    .property-header {
-      display: flex;
-      flex-direction: column;
-      background-color: rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-
-      @media (min-width: 800px) {
-        flex-direction: row;
-        .carousel { width: 65%; }
-        .property-header-details { width: 35%; }
-      }
-
-      .carousel {
-        background-color: rgba(0, 0, 0, 0.1);
-        height: 400px;
-
-        .carousel-inner {
-          height: 100%;
-
-          .carousel-item {
-            height: 100%;
-
-            img {
-              height: 100%;
-              object-fit: cover;
-            }
-          }
-        }
-      }
-
-      .property-header-details {
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-    }
-
-    .property-details {
-      display: flex;
-      flex-direction: row;
-
-      .accordion {
-        text-align: left;
-        margin-top: 20px;
-        border-radius: 0px;
-        width: 100%;
-  
-        .card {
-          border-radius: 0px;
-  
-          .card-header {
-            cursor: pointer;
-            font-size: 30px;
-            font-weight: bold;
-            transition: all ease .2s;
-            &:hover { color: dodgerblue; }
-          }
-        }
-      }
-    }
-  }
+  h1 { font-size: 30px; margin: 0; }
 }
 
 // ADMIN =============================
