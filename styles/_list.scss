@@ -28,8 +28,8 @@
 
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
     gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
     @media (min-width: 700px) { grid-template-columns: repeat(2, 1fr); }
     @media (min-width: 1000px) { grid-template-columns: repeat(3, 1fr); }
     @media (min-width: 1500px) { grid-template-columns: repeat(4, 1fr); }
@@ -52,6 +52,14 @@
         display: inline-block;
         padding: 2px 8px;
       }
+      
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: black;
+        border-radius: 50px;
+        width: 30px;
+        height: 30px;
+      }
 
       .card-body-fade {
         display: block;
@@ -69,6 +77,10 @@
         width: 70%;
         height: 1.2em;
         background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+      }
+
+      .card-footer {
+        padding: 5px 15px 15px;
       }
     }
   }

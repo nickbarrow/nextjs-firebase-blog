@@ -11,8 +11,13 @@ export default function BeerCarousel(props) {
             <Image
               className="d-block w-100"
               src={item}
-              alt="First slide"
-              layout="fill"
+              // loader={() =>
+              //   'https://thumbs.gfycat.com/ArtisticShoddyKudu-small.gif'
+              // }
+              alt={'Slide ' + index}
+              width={350}
+              height={200}
+              priority={true}
             />
             {props.text === 'true' && (
               <Carousel.Caption>
