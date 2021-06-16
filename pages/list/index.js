@@ -1,6 +1,3 @@
-// This component represents the index page for the site. You
-// can read more about Pages in the Next.js docs at:
-// https://nextjs.org/docs/basic-features/pages
 import React, { useState } from 'react'
 import { getProperties, firestore } from '@lib/firebase'
 import { Layout } from '@components'
@@ -30,16 +27,25 @@ const Gallery = ({ properties }) => {
   return (
     <Layout>
       <div className="gallery">
-        {user && (
-          <Button
-            variant="outline-success"
-            style={{ width: '100%' }}
-            onClick={() => {
-              setShowModal(true)
-            }}>
-            Upload
-          </Button>
-        )}
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <h1 className="mx-3" style={{ fontSize: '30px', fontWeight: '900' }}>
+            Listings
+          </h1>
+          {user && user.displayName === 'Nick Barrow' ? (
+            <Button
+              variant="outline-primary"
+              size="sm"
+              onClick={() => {
+                setShowModal(true)
+              }}>
+              <i class="fas fa-plus-circle mr-2"></i>
+              Add a Property
+            </Button>
+          ) : (
+            ''
+          )}
+        </div>
+
         {properties ? (
           <div className="card-grid">
             {properties.map((item, index) => {

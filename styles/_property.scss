@@ -28,29 +28,29 @@
       background-color: rgba(0, 0, 0, 0.05);
       overflow: hidden;
 
-      @media (min-width: 800px) {
-        flex-direction: row;
-        .carousel { width: 65%; }
-        .property-header-details { width: 35%; }
-      }
+      // @media (min-width: 800px) {
+      //   flex-direction: row;
+      //   .carousel { width: 65%; }
+      //   .property-header-details { width: 35%; }
+      // }
 
-      .carousel {
-        background-color: rgba(0, 0, 0, 0.1);
-        height: 400px;
+      // .carousel {
+      //   background-color: rgba(0, 0, 0, 0.1);
+      //   height: 400px;
 
-        .carousel-inner {
-          height: 100%;
+      //   .carousel-inner {
+      //     height: 100%;
 
-          .carousel-item {
-            height: 100%;
+      //     .carousel-item {
+      //       height: 100%;
 
-            img {
-              height: 100%;
-              object-fit: cover;
-            }
-          }
-        }
-      }
+      //       img {
+      //         height: 100%;
+      //         object-fit: cover;
+      //       }
+      //     }
+      //   }
+      // }
 
       .property-header-details {
         padding: 10px;

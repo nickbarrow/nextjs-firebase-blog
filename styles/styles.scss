@@ -1,5 +1,6 @@
 @import './_variables.scss';
 @import './_BeerNav.scss';
+@import './_BeerCarousel.scss';
 @import './_home.scss';
 @import './_list.scss';
 @import './_property.scss';
@@ -18,7 +19,7 @@ a:hover { text-decoration: none; }
 
 #__next {
   box-sizing: border-box;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   text-align: center;
   // height: 100%;
 
