@@ -1,49 +1,49 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { signIn, signInWithGoogle } from "@lib/firebase";
-import { useAuth } from "@contexts/auth";
-import styles from "@styles/signin.module.scss";
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { signIn, signInWithGoogle } from '@lib/firebase'
+import { useAuth } from '@contexts/auth'
+// import styles from "@styles/signin.module.scss";
 
 const SignInPage = () => {
-  const router = useRouter();
-  const [user, userLoading] = useAuth();
-  const [values, setValues] = useState({ email: "", password: "" });
+  const router = useRouter()
+  const [user, userLoading] = useAuth()
+  const [values, setValues] = useState({ email: '', password: '' })
 
   if (userLoading) {
-    return <h1>Loading...</h1>;
+    return <h1>Loading...</h1>
   }
 
-  if (user && typeof window !== "undefined") {
-    router.push("/");
-    return null;
+  if (user && typeof window !== 'undefined') {
+    router.push('/')
+    return null
   }
 
   const handleChange = (e) => {
-    const id = e.target.id;
-    const newValue = e.target.value;
+    const id = e.target.id
+    const newValue = e.target.value
 
-    setValues({ ...values, [id]: newValue });
-  };
+    setValues({ ...values, [id]: newValue })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    let missingValues = [];
+    let missingValues = []
     Object.entries(values).forEach(([key, value]) => {
       if (!value) {
-        missingValues.push(key);
+        missingValues.push(key)
       }
-    });
+    })
 
     if (missingValues.length > 1) {
-      alert(`You're missing these fields: ${missingValues.join(", ")}`);
-      return;
+      alert(`You're missing these fields: ${missingValues.join(', ')}`)
+      return
     }
 
     signIn(values.email, values.password).catch((err) => {
-      alert(err);
-    });
-  };
+      alert(err)
+    })
+  }
 
   return (
     <div className={styles.SignIn}>
@@ -69,7 +69,7 @@ const SignInPage = () => {
         </button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default SignInPage;
+export default SignInPage
