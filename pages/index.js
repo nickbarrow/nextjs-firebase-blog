@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getPosts, getProperties } from '@lib/firebase'
+import { getProperties } from '@lib/firebase'
 import { Layout } from '@components'
 import { useAuth } from '@contexts/auth'
 // react-bootstrap component imports
@@ -144,12 +144,10 @@ const Home = ({ posts, properties }) => {
 }
 
 export async function getServerSideProps() {
-  const posts = await getPosts()
   const properties = await getProperties()
 
   return {
     props: {
-      posts,
       properties
     }
   }

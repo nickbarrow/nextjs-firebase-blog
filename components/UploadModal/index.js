@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { store, firestore } from '@lib/firebase'
+import { store, firestore, updateProperty } from '@lib/firebase'
 import FileUploader from 'react-firebase-file-uploader'
 
 // Display components
@@ -103,7 +103,7 @@ export default function UploadModal(props) {
   }
   // Create record or Update if editing.
   const handleUpload = async () => {
-    if (props.editingItem) await firestore.collection('properties').doc(props.editingItem.id).set(uploadForm)
+    if (props.editingItem) await updateProperty(props.editingItem.id, uploadForm)
     else await firestore.collection('properties').add(uploadForm)
     props.setShowModal(false)
     wipeForm()
@@ -132,7 +132,9 @@ export default function UploadModal(props) {
                 onProgress={handleUploadProgress}
                 onUploadSuccess={handleImageUploadSuccess}
                 onError={(error) => { console.log(error) }} />
-              <div className="img-upload-btn"></div>
+              <div className="img-upload-btn">
+                <i class="fas fa-file-upload"></i>
+              </div>
               <p>Upload Image(s)</p>
             </label>
 
@@ -140,7 +142,7 @@ export default function UploadModal(props) {
               {uploadForm.imageURLs?.map((src, index) => {
                 return (
                   <div className="uploading-image-container d-inline-block" key={index}>
-                    <img className="uploading-image" src={src} />
+                    <img className="uploading-image" src={src} alt={"Property image " + index} />
                     <div
                       className="cancel-image"
                       onClick={() => {

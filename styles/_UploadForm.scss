@@ -60,26 +60,27 @@
 
 .img-upload-label {
     margin: 0;
+    font-size: 18px;
+    font-weight: 700;
     position: relative;
     display: flex;
     cursor: pointer;
     justify-content: center;
+    user-select: none;
+    transition: all ease .8s;
 
     &:hover {
-        .img-upload-btn {
-            border-color: #ccc;
-            &:before {
-                color: #ccc;
-            }
-        }
-        p {
-            color: #ccc;
-        }
+        .img-upload-btn { border-color: rgba(0, 0, 0, 0.35); }
+        p { color: rgba(0, 0, 0, 0.35); }
+    }
+    &:active {
+        .img-upload-btn { border-color: rgba(0, 0, 0, 0.65); }
+        p { color: rgba(0, 0, 0, 0.65); }
     }
 
     .img-upload-btn {
-        content: "+";
-        font-size: 30px;
+        // content: "+";
+        font-size: 26px;
         font-weight: bold;
         width: 50px;
         height: 50px;
@@ -89,23 +90,12 @@
         border: 3px dashed #212529;
         border-radius: 10px;
         transition: all ease 0.2s;
-
-        &:before {
-            content: "+";
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            color: #212529;
-            transition: all ease 0.2s;
-        }
     }
 
     p {
         display: flex;
         align-items: center;
         margin: 0 0 0 20px;
-        font-size: 24px;
         transition: all ease 0.2s;
     }
 }
