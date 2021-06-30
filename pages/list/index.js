@@ -38,7 +38,7 @@ const Gallery = ({ properties }) => {
               onClick={() => {
                 setShowModal(true)
               }}>
-              <i class="fas fa-plus-circle mr-2"></i>
+              <i className="fas fa-plus-circle mr-2"></i>
               Add a Property
             </Button>
           ) : (

@@ -33,13 +33,14 @@
             min-height: 50px;
             display: flex;
             align-items: center;
-            font-size: 18px;
+            font-size: 17px;
             color: rgba(0, 0, 0, 0.65);
             margin: 0;
             padding: 0 30px;
+            transition: all ease .2s;
             
-            &:hover { background-color: #eee; }
-            &:active { color: black; background-color: #ddd; }
+            &:hover { color: black; background-color: #eee; }
+            &:active { box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2); }
             &:not(:last-child) { border-right: 1px solid #eee; }
 
             @media (min-width: 992px) { height: $navHeight; }
@@ -57,10 +58,7 @@
                 flex-direction: row;
                 align-items: center;
 
-                &:hover { 
-                    span { text-decoration: underline; }
-                    img { opacity: .8; }
-                }
+                &:hover span { text-decoration: underline; }
 
                 span {
                     margin-right: 10px;

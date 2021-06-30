@@ -33,8 +33,8 @@ export default function BeerCarousel(props) {
         })}
       </Carousel>
       <div className="loading-img">
-        <Spinner animation="border" className="mr-3" />
-        Loading...
+        {/* <Spinner variant="primary" animation="border" className="mr-3" /> */}
+        {/* Loading... */}
       </div>
     </div>
   )

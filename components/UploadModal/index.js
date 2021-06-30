@@ -133,7 +133,7 @@ export default function UploadModal(props) {
                 onUploadSuccess={handleImageUploadSuccess}
                 onError={(error) => { console.log(error) }} />
               <div className="img-upload-btn">
-                <i class="fas fa-file-upload"></i>
+                <i className="fas fa-file-upload"></i>
               </div>
               <p>Upload Image(s)</p>
             </label>

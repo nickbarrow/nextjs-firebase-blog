@@ -60,7 +60,7 @@ export default function BeerNav(props) {
 
               <Dropdown.Menu>
                 <Dropdown.Item onClick={signOut}>
-                  <i class="fas fa-door-open mr-2"></i>
+                  <i className="fas fa-door-open mr-2"></i>
                   Log Out
                 </Dropdown.Item>
               </Dropdown.Menu>
