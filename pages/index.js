@@ -4,19 +4,8 @@ import { Layout } from '@components'
 import { useAuth } from '@contexts/auth'
 // react-bootstrap component imports
 import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
-import Form from 'react-bootstrap/Form'
 
 const Home = ({ posts, properties }) => {
-  const [user] = useAuth()
-  const [showModal, setShowModal] = useState(false)
-  const [editing, setEditing] = useState(false)
-
-  var toggleEditing = () => {
-    if (editing) setEditing(false)
-    else setEditing(true)
-  }
-
   const [windowHeight, setWindowHeight] = useState(undefined)
 
   useEffect(() => {
@@ -73,70 +62,6 @@ const Home = ({ posts, properties }) => {
               </a>
             </span>
           </div>
-
-          {user && (
-            <>
-              <div className={`edit-info ${editing ? 'editing' : ''}`}>
-                <span
-                  onClick={() => {
-                    toggleEditing()
-                  }}>
-                  Edit Homepage
-                </span>
-              </div>
-
-              <Modal
-                show={showModal}
-                onHide={() => {
-                  setShowModal(false)
-                }}>
-                <Modal.Header closeButton>
-                  <Modal.Title>
-                    <b>Edit Homepage</b>
-                  </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Header Text</Form.Label>
-                    <Form.Control type="text" placeholder="Homepage H1" />
-                    {/* <Form.Text className="text-muted">
-                    Greeting header.
-                  </Form.Text> */}
-                    <br />
-
-                    <Form.Label>Paragraph Text</Form.Label>
-                    <Form.Control type="text" placeholder="Homepage H1" />
-                    <br />
-
-                    <Form.Label>Button Text</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Schedule an Appointment"
-                    />
-                    <br />
-                    <Form.Label>Button Link</Form.Label>
-                    <Form.Control type="text" placeholder="appt" />
-                  </Form.Group>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button
-                    variant="secondary"
-                    onClick={() => {
-                      setShowModal(false)
-                    }}>
-                    Close
-                  </Button>
-                  <Button
-                    variant="primary"
-                    onClick={() => {
-                      setShowModal(false)
-                    }}>
-                    Save Changes
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </>
-          )}
         </div>
       </div>
     </Layout>
